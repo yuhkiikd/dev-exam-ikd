@@ -1,6 +1,5 @@
 class PropertiesController < ApplicationController
   def index
-    @properties = Property.all.order(id: 'DESC')
   end
 
   def new
