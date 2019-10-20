@@ -9,11 +9,12 @@ class PropertiesController < ApplicationController
     if params[:back]
       @property = Property.new(property_params)
     else
-      @prooerty = Property.new
+      @property = Property.new
     end
   end
 
   def create
+    @property = Property.new(property_params)
     if @property.save
       flash[:success] = '記事を作成しました！'
       redirect_to properties_path

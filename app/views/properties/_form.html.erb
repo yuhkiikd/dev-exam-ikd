@@ -1,2 +1,29 @@
-<h1>Properties#index</h1>
-<p>Find me in app/views/properties/index.html.erb</p>
+<%= form_for @property do |f| %>
+  <% if @property.errors.any? %>
+    <div id="error_exlanation">
+      <h2><%= pluralize(@property.errors.count, "error") %>件のエラーがあります。</h2>
+      <ul>
+        <% @property.errors.full_messages.each do |m| %>
+          <li><%= m %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div><%= f.label :'物件名' %></div>
+  <div><%= f.text_field :property %></div>
+
+  <div><%= f.label :'賃料' %></div>
+  <div><%= f.number_field :rent %>円</div>
+
+  <div><%= f.label :'住所' %></div>
+  <div><%= f.text_field :address %></div>
+
+  <div><%= f.label :'築年数' %></div>
+  <div><%= f.number_field :age %>年</div>
+
+  <div><%= f.label :'備考' %></div>
+  <div><%= f.text_area :note %></div>
+
+  <%= f.submit %>
+<% end %>

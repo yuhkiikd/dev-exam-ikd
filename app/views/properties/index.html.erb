@@ -18,7 +18,7 @@
       <td><%= property.age %></td>
       <td><%= property.note %></td>
       <td><%= link_to '詳細', property %></td>
-      <td><%= link_to '編集', edit_property_path %></td>
+      <td><%= link_to '編集', edit_property_path(property) %></td>
       <td><%= link_to '削除', property, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } %></td>
     <% end %>
   </tr>
