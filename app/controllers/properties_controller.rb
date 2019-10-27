@@ -7,7 +7,7 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
-    2.times do #最寄駅数変更したい場合は数値変更
+    2.times do #新規の最寄駅数、変更したい場合は数値変更
       @property.station.build
     end
   end
@@ -29,11 +29,16 @@ class PropertiesController < ApplicationController
   end
 
   def update
-    if @property.update(property_params)
-      flash[:success] = '記事を編集しました！'
-      redirect_to properties_path
-    else
+    if params[:add_station]
+      @property.station.build
       render :edit
+    else
+      if @property.update(property_params)
+        flash[:success] = '記事を編集しました！'
+        redirect_to property_path
+      else
+        render :edit
+      end
     end
   end
 
@@ -46,7 +51,7 @@ class PropertiesController < ApplicationController
   private
 
   def property_params
-    params.require(:property).permit(:property, :rent, :address, :age, :note, station_attributes:[:id, :line, :station, :min])
+    params.require(:property).permit(:property, :rent, :address, :age, :note, station_attributes: [:id, :line, :station, :min])
   end
 
   def set_property
