@@ -1,7 +1,7 @@
 <%= form_for @property do |f| %>
   <% if @property.errors.any? %>
     <div id="error_exlanation">
-      <h2><%= pluralize(@property.errors.count, "error") %>件のエラーがあります。</h2>
+      <h2><%= pluralize(@property.errors.count, "件") %>のエラーがあります。</h2>
       <ul>
         <% @property.errors.full_messages.each do |m| %>
           <li><%= m %></li>
