@@ -1,27 +1,25 @@
 <h1>詳細閲覧</h1>
 <table class="rent_status">
-    <tr>
-      <td><b>物件名：</b><%= @property.property %></td>
-    <tr>
-      <td><b>賃料：</b><%= @property.rent.to_s(:delimited) %>円</td>
-    </tr>
-    <tr>
-      <td><b>住所：</b><%= @property.address %></td>
-    </tr>
-    <tr>
-      <td><b>築年数：</b><%= @property.age %>年</td>
-    </tr>
-    <tr>
-      <td><b>備考：</b><%= @property.note %></td>
-    </tr>
+  <tr>
+    <td class="properny"><b>物件名：</b><%= @property.property %></td>
+  <tr>
+    <td><b>賃料：</b><%= @property.rent.to_s(:delimited) %>円</td>
+  </tr>
+  <tr>
+    <td><b>住所：</b><%= @property.address %></td>
+  </tr>
+  <tr>
+    <td><b>築年数：</b><%= @property.age %>年</td>
+  </tr>
+  <tr>
+    <td><b>備考：</b><%= @property.note %></td>
+  </tr>
 </table>
 <hr>
-<table class="rent_status">
-  <% @property.station.each_with_index do |prop, i| %>
+<% @property.station.each_with_index do |prop, i| %>
   <% i += 1 %>
-    <tr>
-      <td><b>最寄駅：</b><%= i %></td>
-    </tr>
+  <h4>最寄駅：<%= i %></h4>
+  <table class="rent_status">
     <tr>
       <td><b>路線名：</b><%= prop.line %></td>
     </tr>
@@ -31,7 +29,6 @@
     <tr>
       <td><b>徒歩分数：</b><%= prop.min %>分</td>
     </tr>
+  </table>
   <% end %>
-</table>
-
 <%= link_to '編集', edit_property_path(@property) %> | <%= link_to '戻る', properties_path %>
