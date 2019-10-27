@@ -30,5 +30,8 @@
     <div><%= i.number_field :min %></div>
   <% n += 1 %>
   <% end %>
+  <% if action_name == 'edit' %>
+    <%= f.submit "最寄駅を増やす", name: "add_station" %>
+  <% end %>
   <%= f.submit %>
 <% end %>
