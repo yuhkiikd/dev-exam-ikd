@@ -1,0 +1,23 @@
+h4 {
+  margin :10px 0;
+}
+
+.rent_status {
+  margin-left: 30px;
+  width: 100%;
+  .property {
+    margin-left: -30px;
+  }
+  td {
+    height: 40px;
+    vertical-align: middle;
+  }
+}
+
+.rent_index_table {
+  width: 100%;
+}
+
+.text_align_center {
+  text-align: center;
+}

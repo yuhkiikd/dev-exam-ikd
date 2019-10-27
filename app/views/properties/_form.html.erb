@@ -9,22 +9,16 @@
       </ul>
     </div>
   <% end %>
-
   <div><%= f.label :property, '物件名' %></div>
   <div><%= f.text_field :property %></div>
-
   <div><%= f.label :rent, '賃料' %></div>
   <div><%= f.number_field :rent %>円</div>
-
   <div><%= f.label :address, '住所' %></div>
   <div><%= f.text_field :address %></div>
-
   <div><%= f.label :age, '築年数' %></div>
   <div><%= f.number_field :age %>年</div>
-
   <div><%= f.label :note, '備考' %></div>
   <div><%= f.text_area :note %></div>
-
   <% n = 1 %>
   <%= f.fields_for :station do |i| %>
   <h2>最寄り駅<%= n %></h2>
@@ -36,6 +30,5 @@
     <div><%= i.number_field :min %></div>
   <% n += 1 %>
   <% end %>
-
   <%= f.submit %>
 <% end %>
